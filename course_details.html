@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles2.css">
+    <title>Course Details</title>
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <?php
+                // Retrieve the student's name from the URL
+                $student_name = $_GET['username'];
+            ?>
+            <h1>Hello <?php echo $student_name; ?>, welcome!!</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <?php
+            // Retrieve course details from the URL
+            $course_name = $_GET['course'];
+            $video_url = $_GET['video'];
+        ?>
+
+        <h2><?php echo $course_name; ?></h2>
+        <p>Video URL: <a href="<?php echo $video_url; ?>" target="_blank"><?php echo $video_url; ?></a></p>
+
+        <!-- Add additional course details as needed -->
+
+        <p><a href="courses.html">Back to Courses</a></p>
+    </div>
+</body>
+</html>
