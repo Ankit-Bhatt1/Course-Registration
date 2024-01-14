@@ -27,9 +27,16 @@ const LoginSchema = new mongoose.Schema({
     password:{
         type:String,
         required:true
+    },
+    regId:{
+        type:Number,
+        required:true
+    },
+    rollno:{
+        type:Number,
+        required:true
     }
 });
-
 
 // creating a model 
 // const collection = new mongoose.model("collection_name", schema_name);

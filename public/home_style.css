@@ -1,0 +1,215 @@
+/* Reset some default browser styles */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply a background color to the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Style the navigation bar */
+nav {
+    background-color: #333;
+    color: white;
+    overflow: hidden;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+/* New styles for navigation links hover effect */
+nav a:hover {
+    background-color: #555;
+}
+
+/* Animation for the navigation bar */
+nav ul {
+    transition: max-height 0.5s ease-in-out;
+    max-height: 0;
+    overflow: hidden;
+}
+
+nav:hover ul {
+    max-height: 200px;
+}
+
+/* Dropdown for Contact menu */
+nav ul li.contact-dropdown {
+    position: relative;
+}
+
+nav ul li.contact-dropdown ul {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+nav ul li.contact-dropdown:hover ul {
+    display: block;
+}
+
+nav ul li.contact-dropdown ul li {
+    display: block;
+    padding: 10px;
+}
+
+/* Add more styling for your dropdown links if needed */
+
+/* Anchor link for "About Us" to navigate to the bottom of the page */
+nav ul li a[href^="#"] {
+    display: block;
+}
+
+.course-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.course {
+    width: 250px;
+    margin: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.course:hover {
+    transform: scale(1.05);
+}
+
+.course img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.course h2 {
+    margin-top: 10px;
+    color: #333;
+}
+
+.course p {
+    color: #666;
+}
+
+.course a {
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Styles for course details page */
+.course-details {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.course-details img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.course-details h2 {
+    color: #333;
+}
+
+.course-details p {
+    color: #666;
+}
+
+.back-button {
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: #0056b3;
+}
+
+/* Styles for the about section */
+.about-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.about-section h2 {
+    color: #333;
+}
+
+.about-section p {
+    color: #666;
+}
+
+.about-section a {
+    color: #007bff;
+}
+
+.about-section a:hover {
+    color: #0056b3;
+}
+
+#logout{
+    color:red;
+}
+
+.about-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.about-section h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.about-section a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.about-section a:hover {
+    color: #0056b3;
+}

@@ -16,6 +16,11 @@ app.use(express.urlencoded({extended:false}));
 
 app.set('view engine', 'ejs');
 
+
+// app.get("/course-detail", (req, res) => {
+//     res.sendFile(path.join(__dirname, '../public/course_detail_1.html'));
+// });
+
 app.get("/", (req , res)=>{
     res.render("login");
 });
@@ -24,16 +29,27 @@ app.get("/signup", (req , res)=>{
     res.render("signup");
 });
 
+app.get("/home", (req , res)=>{
+    res.render("home");
+});
+
+app.get("/form", (req , res)=>{
+    res.render("form");
+});
+
 app.use(express.static("public"));
 
 app.post("/login",async (req,res)=>{
    try{
         const check = await collection.findOne({name: req.body.username});
         if(!check){
-            res.send("Login Failed !!");
+            // res.send("Login Failed !!");
+            return res.render("login", { loginFailed: "User not found!" });
         }
-        
-        const isPassWordMatch = await bcrypt.compare(req.body.password,check.password);
+        // console.log(typeof req.body.password, typeof check.password);
+
+        // const isPassWordMatch = await bcrypt.compare(req.body.password,check.password);
+        const isPasswordMatch = req.body.password === check.password;
         if(isPassWordMatch){
             res.render("home");
         }
@@ -42,7 +58,7 @@ app.post("/login",async (req,res)=>{
         }
     }
     catch{
-        res.send("wrong details");   
+        res.render("login", { loginFailed: "Login failed. Please try again." });  
     }
 });
 
@@ -54,7 +70,11 @@ app.post("/signup", async (req,res)=>{
         // <input type="text" id="name" name="username" placeholder="Enter your name" required autocomplete="off">
         name: req.body.username,
         // <input type="password" id="password" name="password" placeholder="password" required>
-        password: req.body.password
+        password: req.body.password,
+
+        regId: req.body.regId,
+
+        rollno: req.body.rollno
     }
 
     // check if user already exist if it exists 
@@ -65,7 +85,8 @@ app.post("/signup", async (req,res)=>{
     }
     else{
 
-        const hashedPass = await bcrypt.hash(data.password,10);
+        // const hashedPass = await bcrypt.hash(data.password,10);
+        const hashedPass=data.password;
         data.password=hashedPass;
 
          // this code will send the data to your database
@@ -73,6 +94,7 @@ app.post("/signup", async (req,res)=>{
 
     // checking in terminal which kind of data is sending 
     console.log(userdata);
+    res.render("success");
 
     //after this convert the data to json format so that it can be stored in the database
     }
@@ -80,6 +102,27 @@ app.post("/signup", async (req,res)=>{
    
 })
 
+
+
+app.post("/StudentInfo", async (req, res) => {
+    try {
+        const regId = req.body.regId;
+
+        // Assuming you have a method to query the database based on regId
+        const user = await collection.findOne({ regId });
+
+        if (user) {
+            // Render a new page with the user's information
+            res.render("userInfo", { username: user.name, password: user.password });
+        } else {
+            // Render a page indicating that the user was not found
+            res.render("error");
+        }
+    } catch (error) {
+        console.error("Error querying user data:", error);
+        res.status(500).render("errorPage", { errorMessage: "Internal server error" });
+    }
+});
    
 
 

@@ -4,61 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Course Website</title>
-    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="/home_style.css">
 </head>
 <body>
 
     <nav>    
         <ul>
             <li class="welcome-text" id="welcomeText">Welcome</li>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li class="contact-dropdown">
+                <a href="#">Contact</a>
+                <ul>
+                    <li><a href="mailto:your-email@gmail.com">Gmail</a></li>
+                    <li><a href="https://www.linkedin.com/">LinkedIn</a></li>
+                    <li><a href="https://www.instagram.com/">Instagram</a></li>
+                </ul>
+            </li>
+            <li><a href="/" id="logout">Logout</a></li>
         </ul>
     </nav>
 
     <div class="course-container">
         <div class="course">
-            <a href="course_details.html">
-                <img src="1.jpg">
+            <a href="/course_detail_1.html">
+                <img src="/html.jpg">
                 <h2>Introduction to HTML</h2>
                 <p>An introductory course on HTML for beginners.</p>
             </a>
         </div>
         <div class="course">
             <a href="course_details.html">
-                <img src="1.jpg">
+                <img src="/css.png">
                 <h2>CSS Basics</h2>
                 <p>Learn the fundamentals of Cascading Style Sheets.</p>
             </a>
         </div>
         <div class="course">
             <a href="course_details.html">
-                <img src="1.jpg">
+                <img src="/js.avif">
                 <h2>JavaScript Fundamentals</h2>
                 <p>Explore the basics of JavaScript programming language.</p>
             </a>
         </div>
         <div class="course">
             <a href="course_details.html">
-                <img src="1.jpg">
+                <img src="/web_design.avif">
                 <h2>Web Design Principles</h2>
                 <p>Understand essential principles for effective web design.</p>
             </a>
         </div>
         <div class="course">
             <a href="course_details.html">
-                <img src="1.jpg">
+                <img src="/responsive.jpg">
                 <h2>Responsive Web Development</h2>
                 <p>Learn to create responsive and mobile-friendly websites.</p>
             </a>
         </div>
+        <div class="course">
+            <a href="python_course_details.html">
+                <img src="/python.jpg">
+                <h2>Python Programming</h2>
+                <p>Learn the versatile and powerful Python programming language.</p>
+            </a>
+        </div>
+        <div class="course">
+            <a href="java_course_details.html">
+                <img src="/java.jpg">
+                <h2>Java Programming Basics</h2>
+                <p>Get started with the fundamentals of Java programming.</p>
+            </a>
+        </div>
+        <div class="course">
+            <a href="cpp_course_details.html">
+                <img src="/cpp.png">
+                <h2>C++ Programming Fundamentals</h2>
+                <p>Explore the core concepts of C++ programming language.</p>
+            </a>
+        </div>
+        <div class="course">
+            <a href="php_course_details.html">
+                <img src="/php.jpg">
+                <h2>Web Development with PHP</h2>
+                <p>Learn to build dynamic websites using PHP for server-side scripting.</p>
+            </a>
+        </div>
+        <div class="course">
+            <a href="ruby_course_details.html">
+                <img src="/ruby.png">
+                <h2>Ruby on Rails Development</h2>
+                <p>Explore web development using the Ruby on Rails framework.</p>
+            </a>
+        </div>
+        <div class="course">
+            <a href="swift_course_details.html">
+                <img src="/swift.jpg">
+                <h2>Mobile App Development with Swift</h2>
+                <p>Learn to build iOS applications using the Swift programming language.</p>
+            </a>
+        </div>
+        <div class="course">
+            <a href="sql_course_details.html">
+                <img src="/sql.png">
+                <h2>Database Management with SQL</h2>
+                <p>Master the fundamentals of relational databases and SQL queries.</p>
+            </a>
+        </div>
+        
+        
+        
+        
+        
+        
     </div>
-    <script>
-        var username = sessionStorage.getItem('username');
-        var WelcomeTextElement = document.getElementById('welcomeText');
-        WelcomeTextElement.textContent = 'Welcome , '+ username + '...  you can select course of your choice!!';
-    </script>
-
+    <div id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>Welcome to our course website. We provide high-quality courses to help you learn web development.</p>
+        <p>For inquiries, you can reach us via email at <a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a>.</p>
+        <p>&copy; 2024 Course Website. All rights reserved.</p>
+    </div>
 </body>
 </html>

@@ -30,15 +30,12 @@ h2 {
   }
 
   .form-group label {
-    display: inline-block;
-    
-    text-align: right;
+    display: block;
     font-weight: bold;
     margin-bottom: 5px;
   }
 
   .form-group input {
-    display: inline-block;
     width: 100%;
     padding: 8px;
     font-size: 16px;
@@ -64,7 +61,16 @@ h2 {
   p {
     margin-top: 15px;
   }
+#label {
+    text-align: center;
+}
 
-  #signup{
-    width: 40px;
-  }
+#back{
+  width: 25px;
+  position: absolute;
+  top: 300px;
+  left: 626px;
+  cursor: pointer;
+  
+  
+}
