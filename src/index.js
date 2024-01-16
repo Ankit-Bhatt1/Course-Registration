@@ -37,6 +37,14 @@ app.get("/form", (req , res)=>{
     res.render("form");
 });
 
+app.get("/profile", (req , res)=>{
+    res.render("profile");
+});
+
+app.get("/change", (req , res)=>{
+    res.render("change_password");
+});
+
 app.use(express.static("public"));
 
 app.post("/login",async (req,res)=>{
@@ -48,8 +56,8 @@ app.post("/login",async (req,res)=>{
         }
         // console.log(typeof req.body.password, typeof check.password);
 
-        // const isPassWordMatch = await bcrypt.compare(req.body.password,check.password);
-        const isPasswordMatch = req.body.password === check.password;
+        const isPassWordMatch = await bcrypt.compare(req.body.password,check.password);
+        // const isPasswordMatch = req.body.password === check.password;
         if(isPassWordMatch){
             res.render("home");
         }
@@ -85,8 +93,8 @@ app.post("/signup", async (req,res)=>{
     }
     else{
 
-        // const hashedPass = await bcrypt.hash(data.password,10);
-        const hashedPass=data.password;
+        const hashedPass = await bcrypt.hash(data.password,10);
+        // const hashedPass=data.password;
         data.password=hashedPass;
 
          // this code will send the data to your database
@@ -126,7 +134,29 @@ app.post("/StudentInfo", async (req, res) => {
    
 
 
-
+// 
+app.post('/change-password', async (req, res) => {
+    const { username, currentPassword, newPassword } = req.body;
+  
+    try {
+      // Find the user by username and current password
+      const user = await User.findOne({ username, password: currentPassword });
+  
+      if (!user) {
+        return res.status(401).json({ message: 'Invalid credentials' });
+      }
+  
+      // Update the password with the new one
+      user.password = newPassword;
+      await user.save();
+  
+      res.status(200).json({ message: 'Password updated successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  });
+  
 
 
 
